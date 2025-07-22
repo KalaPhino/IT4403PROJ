@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TMDB Authentication</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="lib/auth.js"></script>
+</head>
+<body>
+  <h1>Finalizing Login…</h1>
+  <script>
+    $(function() {
+      // Grab request_token and approved flag from URL
+      const qp = new URLSearchParams(window.location.search);
+      const token    = qp.get('request_token');
+      const approved = qp.get('approved');
+
+      if (token && approved === 'true') {
+        // Exchange token → session → fetch favorites → redirect home
+        createSession(token);
+      } else {
+        $('body').append('<p>Authentication failed or not approved.</p>');
+      }
+    });
+  </script>
+</body>
+</html>

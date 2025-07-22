@@ -2,31 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Explorer SPA | Group 4</title>
-  <link rel="stylesheet" href="lib/style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movie Explorer SPA</title>
+
+  <link rel="stylesheet" href="lib/styles.css" />
+
+  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="lib/app.js" defer></script>
+  <script src="lib/auth.js" defer></script>
+  <script src="lib/app.js"  defer></script>
 </head>
 <body>
   <header>
     <h1>Movie Explorer</h1>
-    <input type="text" id="searchInput" placeholder="Search for a movie" />
+    <input id="searchInput" placeholder="Search a movie" />
     <button id="searchBtn">Search</button>
     <button id="discoverBtn">Discover Popular</button>
+    <button id="tmdbLoginBtn">Sync TMDB Favorites</button>
   </header>
 
   <main id="mainView"></main>
   <aside id="detailsView"></aside>
 
   <section id="favorites">
-    <h2>Favorites</h2>
+    <h2>Local Favorites</h2>
     <ul id="favoritesList"></ul>
   </section>
 
   <section id="watchlist">
-    <h2>Watchlist</h2>
+    <h2>Local Watchlist</h2>
     <ul id="watchList"></ul>
+  </section>
+
+  <section id="remoteFavorites">
+    <h2>TMDB Favorites</h2>
+    <ul id="tmdbFavoritesList"></ul>
   </section>
 </body>
 </html>
