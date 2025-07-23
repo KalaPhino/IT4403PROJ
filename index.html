@@ -3,25 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Movie Explorer SPA</title>
-
+  <title>Movie Explorer SPA - Group 4 | Main Page</title>
   <link rel="stylesheet" href="lib/styles.css" />
 
-  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="lib/auth.js" defer></script>
   <script src="lib/app.js"  defer></script>
 </head>
 <body>
+  <div id="main-content">
   <header>
     <h1>Movie Explorer</h1>
-    <input id="searchInput" placeholder="Search a movie" />
-    <button id="searchBtn">Search</button>
-    <button id="discoverBtn">Discover Popular</button>
-    <button id="tmdbLoginBtn">Sync TMDB Favorites</button>
+    <div id="searchControls">
+      <input id="searchInput" placeholder="Search movies…" />
+      <button id="searchBtn">Search</button>
+      <button id="discoverBtn">Discover Popular</button>
+      <button id="tmdbLoginBtn">Sync TMDB Favorites</button>
+    </div>
+
+    <!-- View / Sort / Filter / Paging Controls -->
+    <div id="viewControls">
+      <button id="gridViewBtn" class="active">Grid</button>
+      <button id="listViewBtn">List</button>
+
+      <select id="sortSelect">
+        <option value="">Sort by</option>
+        <option value="title">Title A–Z</option>
+        <option value="release_date">Release Date</option>
+        <option value="vote_average">Rating</option>
+      </select>
+
+      <input
+        type="number"
+        id="filterYear"
+        placeholder="Year"
+        min="1900"
+        max="2099"
+      />
+
+      <nav id="pagination">
+        <button id="prevPageBtn" disabled>Prev</button>
+        <span id="currentPage">1</span> / <span id="totalPages">1</span>
+        <button id="nextPageBtn" disabled>Next</button>
+      </nav>
+    </div>
   </header>
 
-  <main id="mainView"></main>
+  <main id="mainView" class="grid-view"></main>
   <aside id="detailsView"></aside>
 
   <section id="favorites">
@@ -38,5 +66,6 @@
     <h2>TMDB Favorites</h2>
     <ul id="tmdbFavoritesList"></ul>
   </section>
+  </div>
 </body>
 </html>
